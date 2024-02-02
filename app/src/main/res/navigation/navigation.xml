@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startScreenFragment">
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.example.pexelssidorevichtestapp.ui.fragments.HomeScreenFragment"
+        android:label="HomeScreenFragment" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_detailsScreenFragment"
+            app:destination="@id/detailsScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="com.example.pexelssidorevichtestapp.ui.fragments.StartScreenFragment"
+        android:label="StartScreenFragment" >
+        <action
+            android:id="@+id/action_startScreenFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsScreenFragment"
+        android:name="com.example.pexelssidorevichtestapp.ui.fragments.DetailsScreenFragment"
+        android:label="DetailsScreenFragment" >
+        <argument
+            android:name="argHomeScreen"
+            app:argType="com.example.pexelssidorevichtestapp.models.Photo" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookMarksFragment"
+        android:name="com.example.pexelssidorevichtestapp.ui.fragments.BookMarksFragment"
+        android:label="BookMarksFragment" />
+</navigation>

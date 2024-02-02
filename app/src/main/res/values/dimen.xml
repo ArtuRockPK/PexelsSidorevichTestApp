@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name = "SeachBarTextSize">14sp</dimen>
+    <dimen name = "ChipTextSize">18sp</dimen>
+    <dimen name = "FragmentTitleTextSize">23sp</dimen>
+    <dimen name = "ChipStartEndPaddings">20dp</dimen>
+</resources>
