@@ -3,6 +3,7 @@ package com.example.pexelssidorevichtestapp.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup.LayoutParams
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -100,15 +101,18 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
         val chip = Chip(context)
         chip.setChipBackgroundColorResource(R.color.white)
         chip.setChipStrokeColorResource(R.color.white)
-        chip.setChipEndPaddingResource(R.dimen.ChipStartEndPaddings)
-        chip.setChipStartPaddingResource(R.dimen.ChipStartEndPaddings)
+        chip.setTextSize(18f)
+        chip.setChipCornerRadiusResource(R.dimen.chipConerRadius)
         chip.text = message
+        chipGroup.addView(chip)
         chip.setOnClickListener {
             Toast.makeText(context,chip.text,Toast.LENGTH_SHORT).show()
-            chip.setChipBackgroundColorResource(R.color.red)
+            chipGroup.clearCheck()
+            chipGroup.check(chip.id)
+            if(chip.isChecked) chip.setChipBackgroundColorResource(R.color.red) else chip.setChipBackgroundColorResource(R.color.white)
         }
-        chipGroup.addView(chip)
-    }
+
+   }
 
 
 }

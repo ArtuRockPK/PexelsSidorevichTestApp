@@ -4,4 +4,9 @@
     <dimen name = "ChipTextSize">18sp</dimen>
     <dimen name = "FragmentTitleTextSize">23sp</dimen>
     <dimen name = "ChipStartEndPaddings">20dp</dimen>
+    <dimen name = "chipHeight">38dp</dimen>
+    <dimen name = "chipConerRadius">24dp</dimen>
+    <dimen name = "TitleTextSize">23sp</dimen>
+    <dimen name = "cardCornerRadius">24dp</dimen>
+
 </resources>

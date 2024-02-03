@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PexelsSidorevichTestApp</string>
     <string name="company_name">Pexels\nApp.</string>
+    <string name="search_bar_hint">Search</string>
 </resources>

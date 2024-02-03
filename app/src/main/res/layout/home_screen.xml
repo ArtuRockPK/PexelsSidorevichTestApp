@@ -16,7 +16,9 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/white"
-        android:hint="Search bar"
+        app:navigationIcon="@drawable/searchicon"
+        app:navigationIconTint="@color/red"
+        android:hint="@string/search_bar_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/recycler_view_1"
@@ -35,12 +38,22 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroup"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-
-
+            app:singleSelection="true"
             app:singleLine="true">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="chip1"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@color/white"
+                android:textSize="@dimen/ChipTextSize"
+                app:chipStrokeColor="@color/white"
+
+                />
 
 
         </com.google.android.material.chip.ChipGroup>
@@ -63,7 +76,7 @@
         android:layout_height="64dp"
         app:tabIndicatorGravity="top"
         app:tabIndicatorColor="@color/red"
-        app:tabRippleColor="@color/red"
+
         android:background="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
