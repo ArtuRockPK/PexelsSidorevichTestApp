@@ -1,11 +1,16 @@
 package com.example.pexelssidorevichtestapp.ui.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup.LayoutParams
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -14,25 +19,36 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pexelssidorevichtestapp.R
 import com.example.pexelssidorevichtestapp.adapters.PictureAdapter
+import com.example.pexelssidorevichtestapp.api.RetrofitInstance
 import com.example.pexelssidorevichtestapp.ui.HomeScreenViewModel
 import com.example.pexelssidorevichtestapp.ui.MainActivity
+import com.example.pexelssidorevichtestapp.util.Constants
 import com.example.pexelssidorevichtestapp.util.Resourse
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.search.SearchBar
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout.Tab
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeScreenFragment : Fragment(R.layout.home_screen) {
 
-    private lateinit var bookmarsTab: Tab
-    private lateinit var PictureAdapter: PictureAdapter
-    private lateinit var Recycler: RecyclerView
-    private lateinit var viewModel: HomeScreenViewModel
-    private lateinit var chipGroup: ChipGroup
+    private lateinit var PictureAdapter : PictureAdapter
+    private lateinit var Recycler : RecyclerView
+    private lateinit var viewModel : HomeScreenViewModel
+    private lateinit var chipGroup : ChipGroup
+    private lateinit var searchBar : EditText
+
+
+
     val TAG = "sometag"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
+
     }
 
 
@@ -43,6 +59,26 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
         chipGroup = view.findViewById(R.id.chipGroup)
         chipGroup.isScrollContainer = true
         setupRecyclerView()
+        searchBar = view.findViewById(R.id.search_bar)
+
+
+
+
+
+        var job: Job? = null
+
+        searchBar.addTextChangedListener {editable ->
+            job?.cancel()
+            job = MainScope().launch {
+                delay(Constants.SEARCH_TIME_DELAY)
+                editable?.let {
+                    if(editable.toString().isNotEmpty()) {
+                        viewModel.getPhotos(editable.toString())
+                    }
+                }
+            }
+        }
+
 
         PictureAdapter.setOnItemClicklistener {
 
@@ -107,13 +143,11 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
         chip.text = message
         chipGroup.addView(chip)
         chip.setOnClickListener {
-            Toast.makeText(context,chip.text,Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context,chip.text,Toast.LENGTH_SHORT).show()
+            searchBar.setText(chip.text)
             chipGroup.clearCheck()
             chipGroup.check(chip.id)
             if(chip.isChecked) chip.setChipBackgroundColorResource(R.color.red) else chip.setChipBackgroundColorResource(R.color.white)
         }
-
    }
-
-
 }

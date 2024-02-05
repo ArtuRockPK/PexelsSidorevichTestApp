@@ -8,7 +8,7 @@
     android:background="#FEFEFE">
 
 
-    <com.google.android.material.search.SearchBar
+    <EditText
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -16,8 +16,8 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/white"
-        app:navigationIcon="@drawable/searchicon"
-        app:navigationIconTint="@color/red"
+        android:drawableStart="@drawable/searchicon"
+        android:drawablePadding="8dp"
         android:hint="@string/search_bar_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

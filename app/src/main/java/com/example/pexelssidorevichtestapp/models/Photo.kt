@@ -7,10 +7,10 @@ import java.io.Serializable
     tableName = "photos"
 )
 data class Photo(
-    @PrimaryKey(autoGenerate = true)
     val alt: String,
     val avg_color: String,
     val height: Int,
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val liked: Boolean,
     val photographer: String,

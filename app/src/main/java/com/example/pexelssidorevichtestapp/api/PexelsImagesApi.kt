@@ -1,6 +1,5 @@
 package com.example.pexelssidorevichtestapp.api
 
-import com.example.pexelssidorevichtestapp.models.GetPhotoApi
 import com.example.pexelssidorevichtestapp.models.SearchResponse
 import com.example.pexelssidorevichtestapp.models.TopCollections
 import com.example.pexelssidorevichtestapp.util.Constants.Companion.MY_API_KEY

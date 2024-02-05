@@ -19,6 +19,7 @@ class HomeScreenViewModel(
     val myResponseWithPictures:MutableLiveData<Resourse<SearchResponse>> = MutableLiveData()
     val myResponseWithChips:MutableLiveData<Resourse<TopCollections>> = MutableLiveData()
     val bookmarksList:MutableLiveData<List<Photo>> = MutableLiveData(emptyList())
+    val searchBarQuery: MutableLiveData<String> = MutableLiveData()
     init {
         getPhotos("Winter")
     }

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pexelssidorevichtestapp.R
 import com.example.pexelssidorevichtestapp.adapters.PictureAdapter
 import com.example.pexelssidorevichtestapp.api.RetrofitInstance
+import com.example.pexelssidorevichtestapp.db.PhotosDatabase
 import com.example.pexelssidorevichtestapp.repository.PictureRepository
 import com.example.pexelssidorevichtestapp.util.Resourse
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vmFactory = HomeScreenVMProviderFactory(PictureRepository())
+        val vmFactory = HomeScreenVMProviderFactory(PictureRepository(PhotosDatabase(this)))
         viewModel = ViewModelProvider(this,vmFactory).get(HomeScreenViewModel::class.java)
         setContentView(R.layout.activity_main)
 

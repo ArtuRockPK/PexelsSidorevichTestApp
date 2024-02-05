@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.example.pexelssidorevichtestapp.models.Photo
 
 
@@ -11,7 +13,7 @@ import com.example.pexelssidorevichtestapp.models.Photo
     entities = [Photo::class],
     version = 1
 )
-
+@TypeConverters(Converters::class)
 abstract class PhotosDatabase : RoomDatabase() {
     abstract fun getPhotosDao(): PhotoDao
     companion object {
@@ -30,8 +32,6 @@ abstract class PhotosDatabase : RoomDatabase() {
                 PhotosDatabase::class.java,
                 "photos.db"
             ).build()
-
-
     }
 
 

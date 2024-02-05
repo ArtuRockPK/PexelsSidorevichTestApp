@@ -49,7 +49,7 @@ class PictureAdapter: RecyclerView.Adapter<PictureAdapter.PictureViewHolder>() {
     override fun onBindViewHolder(holder: PictureViewHolder, position: Int) {
         val onePhotoObj = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(onePhotoObj.src.large2x).into(findViewById<ImageView>(R.id.ImageView_HomeScreenElem))
+            Glide.with(this).load(onePhotoObj.src.original).into(findViewById<ImageView>(R.id.ImageView_HomeScreenElem))
             setOnClickListener {
                 onItemClickListener?.let {
                     it(onePhotoObj)
