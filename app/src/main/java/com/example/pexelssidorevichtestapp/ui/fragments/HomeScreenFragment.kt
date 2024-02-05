@@ -28,6 +28,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.search.SearchBar
 import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.Tab
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -41,8 +42,7 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
     private lateinit var viewModel : HomeScreenViewModel
     private lateinit var chipGroup : ChipGroup
     private lateinit var searchBar : EditText
-
-
+    private lateinit var tabs : TabLayout
 
     val TAG = "sometag"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,10 +60,11 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
         chipGroup.isScrollContainer = true
         setupRecyclerView()
         searchBar = view.findViewById(R.id.search_bar)
-
-
-
-
+        tabs = view.findViewById(R.id.tabLayout)
+        val tab2:TabLayout.Tab? = tabs.getTabAt(1)
+        tab2?.view!!.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_bookMarksFragment)
+        }
 
         var job: Job? = null
 
@@ -78,8 +79,6 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
                 }
             }
         }
-
-
         PictureAdapter.setOnItemClicklistener {
 
             val bundle = Bundle().apply {
@@ -133,7 +132,6 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
             layoutManager = StaggeredGridLayoutManager(2,1)
         }
     }
-
     private fun addChip(message: String) {
         val chip = Chip(context)
         chip.setChipBackgroundColorResource(R.color.white)

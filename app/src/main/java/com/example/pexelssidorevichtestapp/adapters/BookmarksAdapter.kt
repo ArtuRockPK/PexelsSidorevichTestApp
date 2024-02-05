@@ -34,7 +34,7 @@ class BookmarksAdapter :RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkViewHolder {
         return BookmarkViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.home_screen_image_view,
+                R.layout.bookmark_screen_image_view,
                 parent,
                 false
             )
@@ -54,9 +54,6 @@ class BookmarksAdapter :RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHolder
             Glide.with(this).load(onePhotoObj.src.large2x).into(findViewById<ImageView>(R.id.imageViewItemViewBookmark))
             val authorNameSurname = findViewById<TextView>(R.id.ItemViewBookmarkAuthorName)
             authorNameSurname.text = onePhotoObj.photographer
-
-
-
             setOnClickListener {
                 onItemClickListener?.let {
                     it(onePhotoObj)
