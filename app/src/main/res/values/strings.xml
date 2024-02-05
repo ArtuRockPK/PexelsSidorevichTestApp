@@ -2,4 +2,5 @@
     <string name="app_name">PexelsSidorevichTestApp</string>
     <string name="company_name">Pexels\nApp.</string>
     <string name="search_bar_hint">Search</string>
+    <string name="message_bookmarks_empty">You haven\'t saved anything yet</string>
 </resources>

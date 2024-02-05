@@ -18,8 +18,9 @@ class HomeScreenViewModel(
 
     val myResponseWithPictures:MutableLiveData<Resourse<SearchResponse>> = MutableLiveData()
     val myResponseWithChips:MutableLiveData<Resourse<TopCollections>> = MutableLiveData()
+    val bookmarksList:MutableLiveData<List<Photo>> = MutableLiveData(emptyList())
     init {
-        getPhotos("Girls")
+        getPhotos("Winter")
     }
     val detailsChoise: MutableLiveData<Photo> = MutableLiveData()
     fun getPhotos(tag:String) = viewModelScope.launch {

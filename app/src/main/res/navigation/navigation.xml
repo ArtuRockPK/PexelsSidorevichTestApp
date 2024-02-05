@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_detailsScreenFragment"
             app:destination="@id/detailsScreenFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_bookMarksFragment"
+            app:destination="@id/bookMarksFragment" />
     </fragment>
     <fragment
         android:id="@+id/startScreenFragment"
@@ -27,6 +30,9 @@
         <argument
             android:name="argHomeScreen"
             app:argType="com.example.pexelssidorevichtestapp.models.Photo" />
+        <action
+            android:id="@+id/action_detailsScreenFragment_to_bookMarksFragment"
+            app:destination="@id/bookMarksFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookMarksFragment"

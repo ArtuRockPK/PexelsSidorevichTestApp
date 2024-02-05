@@ -1,8 +1,13 @@
 package com.example.pexelssidorevichtestapp.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
-
+@Entity(
+    tableName = "photos"
+)
 data class Photo(
+    @PrimaryKey(autoGenerate = true)
     val alt: String,
     val avg_color: String,
     val height: Int,

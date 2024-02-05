@@ -3,11 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/cardCornerRadius"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+   >
     <ImageView
-        android:id="@+id/bookmark_screen_ImageView"
+        android:id="@+id/imageViewItemViewBookmark"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        />
+    <TextView
+        android:id="@+id/ItemViewBookmarkAuthorName"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:fontFamily="@font/mulish"
+        android:textSize="18sp"
+        android:text="Name Surname"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:background="@color/author_name_backround_color"
+        android:paddingBottom="8dp"
+        android:paddingTop="6dp"/>
 </androidx.cardview.widget.CardView>

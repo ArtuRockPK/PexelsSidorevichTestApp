@@ -19,10 +19,12 @@ import com.example.pexelssidorevichtestapp.ui.MainActivity
 import com.example.pexelssidorevichtestapp.util.Resourse
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout.Tab
 
 class HomeScreenFragment : Fragment(R.layout.home_screen) {
 
-
+    private lateinit var bookmarsTab: Tab
     private lateinit var PictureAdapter: PictureAdapter
     private lateinit var Recycler: RecyclerView
     private lateinit var viewModel: HomeScreenViewModel
@@ -41,7 +43,6 @@ class HomeScreenFragment : Fragment(R.layout.home_screen) {
         chipGroup = view.findViewById(R.id.chipGroup)
         chipGroup.isScrollContainer = true
         setupRecyclerView()
-
 
         PictureAdapter.setOnItemClicklistener {
 

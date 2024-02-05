@@ -43,17 +43,6 @@
             android:background="@color/white"
             app:singleSelection="true"
             app:singleLine="true">
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="chip1"
-                android:textColor="@color/black"
-                app:chipBackgroundColor="@color/white"
-                android:textSize="@dimen/ChipTextSize"
-                app:chipStrokeColor="@color/white"
-
-                />
 
 
         </com.google.android.material.chip.ChipGroup>
@@ -76,7 +65,6 @@
         android:layout_height="64dp"
         app:tabIndicatorGravity="top"
         app:tabIndicatorColor="@color/red"
-
         android:background="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +77,7 @@
            />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabBookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/icon_bookmark_light"
